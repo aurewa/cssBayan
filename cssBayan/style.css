@@ -55,6 +55,7 @@ body {
 
 label {
     font-size: var(--meme-laber-font-size);
+    transition: 0.7s;
 }
 
 .meme__element label{
@@ -63,6 +64,10 @@ label {
 
 .meme__element label:active .meme__image{
     opacity: 0.7;
+}
+
+.meme__element label:active .meme__control__image{
+    color: blue;
 }
 
 .meme__element label:active{
@@ -126,10 +131,9 @@ label {
 }
 
 .meme__control__image{
-    width: var(--meme-control-icon-width);
-    height: var(--meme-control-icon-height);
-    background-size: var(--meme-control-icon-width) var(--meme-control-icon-height);
-    opacity: 1;
+    width: 0;
+    height: 0;
+    opacity: 0;
 
     background-position: center center;
     background-repeat: no-repeat;
@@ -137,14 +141,12 @@ label {
     border: none;
 
     outline: 0;
-    transition: width 0.7s, height 0.7s;
+    transition: 0.7s;
     object-fit: cover;
-}
+    display: block;
 
-.meme__control__image{
-    display: none;
+    color: #000;
 }
-
 
 /*
     Cursor over the memes (hover) effect only exists for devices that can support hover
@@ -165,34 +167,36 @@ label {
     }
 
     .meme__icons__container{
-        display: none;
+        opacity: 0;
+        transition: 0.7s;
+
+        width: var(--meme-control-icon-width);
+        height: var(--meme-control-icon-height);
     }
     
     .bayan_list:hover .meme__icons__container{
-        display: block;
+        opacity: 1;
     }
 
     .meme__element input:checked ~ label .close__image{
-        display: block;
+        opacity: 1;
     }
     
     .meme__element input:checked ~ label .plus__image{
-        display: none;
+        opacity: 0;
     }
     
     .bayan_list:hover .plus__image{
-        display: block;
+        opacity : 1;
     }
     
     .meme__element:hover .plus__image{
-        display: none;
+        opacity: 0;
     }
     
     .meme__element:hover .close__image{
-        display: block;
+        opacity : 1;
     }
-    
-
 }
 
 /* 
