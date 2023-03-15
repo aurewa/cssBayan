@@ -148,6 +148,10 @@ label {
     color: #000;
 }
 
+.meme__icons__container{
+    display: none;
+}
+
 /*
     Cursor over the memes (hover) effect only exists for devices that can support hover
 */
@@ -167,6 +171,7 @@ label {
     }
 
     .meme__icons__container{
+        display: block;
         opacity: 0;
         transition: 0.7s;
 
