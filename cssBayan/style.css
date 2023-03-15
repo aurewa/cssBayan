@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100hv;
+    min-width: 20rem;
+
+    background-color: #F6F6ED;
+    color: #000;
+
+    font-size: 100%;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+
+    --meme-image-height: 22rem;
+    --meme-image-width: 22rem;
+
+    --page-header-font-size: 3.5rem;
+    --meme-laber-font-size: 1.5rem;
+
+    --meme-control-icon-height: 1.8rem;
+    --meme-control-icon-width: 1.8rem;
+}
+
+.container {
+    width: 100wh;
+    width: 80%;
+    max-width: 75em;
+    margin: 0 auto;
+}
+
+.page__header{
+    font-size: var(--page-header-font-size);
+    margin-bottom: 0.3rem;
+}
+
+.bayan_list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: blue;
+}
+
+.bayan_list input{
+    display: none;
+}
+
+label {
+    font-size: var(--meme-laber-font-size);
+    transition: 0.7s;
+}
+
+.meme__element label{
+    cursor: pointer;
+}
+
+.meme__element label:active .meme__image{
+    opacity: 0.7;
+}
+
+.meme__element label:active .meme__control__image{
+    color: blue;
+}
+
+.meme__element label:active{
+    color: blue;
+}
+
+.meme__element input:checked ~ label{
+    color:#000;
+}
+
+.meme__element input:checked ~ label .meme__image{
+    width: var(--meme-image-width);
+    height: var(--meme-image-height);
+    background-size: var(--meme-image-width) var(--meme-image-height);
+    opacity: 1;
+    margin-bottom: 2rem;
+}
+
+.meme__element__header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 0;
+
+    list-style: none;
+    border-top: 0.0625rem solid #B5B5B5;
+
+    cursor: pointer;
+
+    text-decoration: none;
+    caret-color: transparent;
+}
+
+.meme__image__wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meme__image{
+    width: 0;
+    height: 0;
+
+    max-width: 22rem;
+    max-height: 22rem;
+
+    background-size: 0 0;
+    opacity: 0;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0.0625rem solid grey;
+    object-fit: cover;
+
+    outline: 0;
+    transition: width 0.7s, height 0.7s;
+}
+
+.meme__control__image{
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+
+    outline: 0;
+    transition: 0.7s;
+    object-fit: cover;
+    display: block;
+
+    color: #000;
+}
+
+.meme__icons__container{
+    display: none;
+}
+
+/*
+    Cursor over the memes (hover) effect only exists for devices that can support hover
+*/
+
+@media (hover: hover) {
+
+    .bayan_list:hover{
+        color: #000;
+    }
+    
+    .meme__element:hover .meme__image{
+        width: var(--meme-image-width);
+        height: var(--meme-image-height);
+        background-size: var(--meme-image-width) var(--meme-image-height);
+        opacity: 1;
+        margin-bottom: 2rem;
+    }
+
+    .meme__icons__container{
+        display: block;
+        opacity: 0;
+        transition: 0.7s;
+
+        width: var(--meme-control-icon-width);
+        height: var(--meme-control-icon-height);
+    }
+    
+    .bayan_list:hover .meme__icons__container{
+        opacity: 1;
+    }
+
+    .meme__element input:checked ~ label .close__image{
+        opacity: 1;
+    }
+    
+    .meme__element input:checked ~ label .plus__image{
+        opacity: 0;
+    }
+    
+    .bayan_list:hover .plus__image{
+        opacity : 1;
+    }
+    
+    .meme__element:hover .plus__image{
+        opacity: 0;
+    }
+    
+    .meme__element:hover .close__image{
+        opacity : 1;
+    }
+}
+
+/* 
+    Accordion is displayed correctly at mobile 320x568, tablet 820x1180, desktop 1920×1080
+    It's allowed to use px for media queries;
+*/
+
+@media (min-width: 401px) and (max-width: 820px) {
+    body{
+
+        --meme-image-height: 75%;
+        --meme-image-width: 75%;
+    
+        --meme-control-icon-height: 1.5rem;
+        --meme-control-icon-width: 1.5rem;
+    
+        --page-header-font-size: 2rem;
+        --meme-laber-font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 400px) {
+    body{
+
+        --meme-image-height: 75%;
+        --meme-image-width: 75%;
+    
+        --meme-control-icon-height: 1.3rem;
+        --meme-control-icon-width: 1.3rem;
+    
+        --page-header-font-size: 1.6rem;
+        --meme-laber-font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    body{
+
+        --meme-image-height: 75%;
+        --meme-image-width: 75%;
+    
+        --meme-control-icon-height: 1.2rem;
+        --meme-control-icon-width: 1.2rem;
+    
+        --page-header-font-size: 1.5rem;
+        --meme-laber-font-size: 1rem;
+    }
+}
